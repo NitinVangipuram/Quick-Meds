@@ -1,5 +1,6 @@
+
 import { useState } from 'react';
-import { X, Plus, Minus, Trash2, ShoppingBag, Phone } from 'lucide-react';
+import { X, Plus, Minus, Trash2, ShoppingBag, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -34,6 +35,7 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onClearC
     notes: ''
   });
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(false);
   const { toast } = useToast();
 
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -60,55 +62,17 @@ const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem, onClearC
     }
 
     setIsProcessing(true);
+    setShowComingSoon(true);
 
-    // Create order message for WhatsApp
-    const orderDetails = items.map(item => 
-      `• ${item.name} (${item.manufacturer}) - Qty: ${item.quantity} - ₹${item.price * item.quantity}`
-    ).join('\n');
-
-    const whatsappMessage = `🏥 *NEW ORDER - MediCare Pharmacy*
-
-📋 *Customer Details:*
-Name: ${customerInfo.name}
-Phone: ${customerInfo.phone}
-Address: ${customerInfo.address}
-
-🛒 *Order Items:*
-${orderDetails}
-
-💰 *Order Summary:*
-Subtotal: ₹${subtotal}
-Delivery Fee: ₹${deliveryFee}
-*Total: ₹${total}*
-
-📝 *Additional Notes:*
-${customerInfo.notes || 'None'}
-
-⏰ Order Time: ${new Date().toLocaleString()}
-
-Please confirm this order and provide estimated delivery time.`;
-
-    // Updated WhatsApp number
-    const pharmacyWhatsApp = "918767243352";
-    
-    const whatsappUrl = `https://wa.me/${pharmacyWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
-
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Open WhatsApp
-    window.open(whatsappUrl, '_blank');
-
-    // Clear cart and close
-    onClearCart();
-    setCustomerInfo({ name: '', phone: '', address: '', notes: '' });
-    setIsProcessing(false);
-    onClose();
-
-    toast({
-      title: "Order Sent Successfully!",
-      description: "Your order has been sent to the pharmacy via WhatsApp. You will receive a confirmation shortly.",
-    });
+    // Show coming soon animation
+    setTimeout(() => {
+      setShowComingSoon(false);
+      setIsProcessing(false);
+      toast({
+        title: "Feature Coming Soon! 🚀",
+        description: "WhatsApp ordering will be available soon. Thank you for your patience!",
+      });
+    }, 2000);
   };
 
   if (!isOpen) return null;
@@ -276,16 +240,27 @@ Please confirm this order and provide estimated delivery time.`;
                 <Button
                   onClick={handleCheckout}
                   disabled={isProcessing || items.length === 0}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white relative overflow-hidden"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  {isProcessing ? 'Processing...' : 'Send Order via WhatsApp'}
+                  <div className={`flex items-center justify-center transition-all duration-500 ${showComingSoon ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    {isProcessing ? 'Processing...' : 'Send Order via WhatsApp'}
+                  </div>
+                  
+                  {showComingSoon && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-600 animate-fade-in">
+                      <div className="text-center">
+                        <div className="animate-bounce mb-1">🚀</div>
+                        <div className="text-sm font-bold">Coming Soon!</div>
+                      </div>
+                    </div>
+                  )}
                 </Button>
               </div>
 
               <div className="text-center text-sm text-gray-500 mt-4">
-                <p>Your order will be sent to our pharmacy via WhatsApp for confirmation.</p>
-                <p>You will receive order confirmation and delivery details shortly.</p>
+                <p>WhatsApp ordering feature is coming soon!</p>
+                <p>We're working hard to bring you the best ordering experience.</p>
               </div>
             </>
           )}

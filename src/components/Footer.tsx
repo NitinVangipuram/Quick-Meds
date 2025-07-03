@@ -39,11 +39,16 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
               </p>
               <div className="space-y-3">
                 <p className="text-blue-300 font-medium">
-                  🏥 Licensed Pharmacy | Established 2020
+                  🏥 Licensed Pharmacy
                 </p>
-                <p className="text-xs text-gray-400">
-                  Designed and Developed by Vedant Prashant Buge
-                </p>
+                <div className="space-y-2">
+                  <p className="text-sm font-semibold text-gray-300">
+                    Developed and Designed by Vedant Prashant Buge @ EMA LAB IITDH PC
+                  </p>
+                  <p className="text-sm font-semibold text-gray-300">
+                    Technically Assisted by Nitin Vangipuram @ EMA LAB IITDH PC
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -74,7 +79,7 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
                     <Button 
                       variant="ghost" 
                       className="p-0 h-auto text-gray-300 hover:text-blue-300 text-left justify-start transition-colors duration-200"
-                      onClick={() => window.open(`https://wa.me/918767243352?text=${encodeURIComponent('Hi, I want to track my order.')}`, '_blank')}
+                      onClick={() => alert('Feature coming soon!')}
                     >
                       📦 Track Order
                     </Button>
@@ -106,13 +111,6 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
                   <Button 
                     variant="ghost" 
                     className="p-0 h-auto text-gray-300 hover:text-blue-300 text-left justify-start transition-colors duration-200"
-                    onClick={() => window.open('tel:+918767243352', '_blank')}
-                  >
-                    📞 +91 87672 43352
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    className="p-0 h-auto text-gray-300 hover:text-blue-300 text-left justify-start transition-colors duration-200"
                     onClick={() => window.open('mailto:bugevedant@gmail.com', '_blank')}
                   >
                     📧 bugevedant@gmail.com
@@ -122,7 +120,7 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
                   <Button 
                     variant="ghost" 
                     className="p-0 h-auto text-gray-300 hover:text-green-300 text-left justify-start transition-colors duration-200"
-                    onClick={() => window.open(`https://wa.me/918767243352?text=${encodeURIComponent('Hi, I need assistance with my order.')}`, '_blank')}
+                    onClick={() => alert('WhatsApp support coming soon!')}
                   >
                     💬 WhatsApp Support
                   </Button>
@@ -172,7 +170,7 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
 
             <section>
               <h3 className="font-semibold text-lg mb-2">Contact Us</h3>
-              <p>If you have any questions about this Privacy Policy, please contact us at bugevedant@gmail.com or call +91 87672 43352.</p>
+              <p>If you have any questions about this Privacy Policy, please contact us at bugevedant@gmail.com.</p>
             </section>
           </div>
         </DialogContent>
@@ -200,7 +198,7 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
             <section>
               <h3 className="font-semibold text-lg mb-2">Return Process</h3>
               <ol className="list-decimal list-inside space-y-1">
-                <li>Contact our support team at bugevedant@gmail.com or WhatsApp +91 87672 43352</li>
+                <li>Contact our support team at bugevedant@gmail.com</li>
                 <li>Provide your order number and reason for return</li>
                 <li>Our team will guide you through the return process</li>
                 <li>Pack the items securely in original packaging</li>
@@ -234,8 +232,29 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
             </section>
 
             <section>
-              <h3 className="font-semibold text-lg mb-2">Our Story</h3>
-              <p>Established in 2020, MediCare Pharmacy was founded with the vision of revolutionizing pharmacy services through technology and compassionate care. We started as a small community pharmacy and have grown to serve thousands of customers with our online platform and doorstep delivery services.</p>
+              <h3 className="font-semibold text-lg mb-2">Developed at EMA Lab, IIT Dharwad</h3>
+              <p>This platform is developed at the Emerging MultiMedia and AI (EMA) Laboratory at the Indian Institute of Technology Dharwad. The EMA Lab is a state-of-the-art research facility that focuses on Technologies and research in emerging AI, their applications, and innovative technological solutions.</p>
+              
+              <div className="mt-3 space-y-2">
+                <h4 className="font-medium text-base">About EMA Lab:</h4>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li>Research Excellence: Focuses on research in computer science and technology, web devlopment, iot AR-VR, Digital Twin and their applications in healthcare and technology</li>
+                  <li>Innovation Hub: Develops practical solutions for real-world challenges through interdisciplinary approaches</li>
+                  <li>Academic Excellence: Part of IIT Dharwad, one of India's premier technological institutes</li>
+                  <li>Industry Collaboration: Works closely with industry partners to translate research into practical applications</li>
+                  <li>Student Development: Provides opportunities for undergraduate and graduate students to engage in meaningful research</li>
+                </ul>
+              </div>
+
+              <div className="mt-3 space-y-2">
+                <h4 className="font-medium text-base">IIT Dharwad:</h4>
+                <ul className="list-disc list-inside space-y-1 ml-4">
+                  <li>Location: Dharwad, Karnataka, India</li>
+                  <li>Established as one of the newer IITs with a focus on innovation and technology</li>
+                  <li>Known for its interdisciplinary approach to engineering and technology education</li>
+                  <li>Committed to addressing societal challenges through technological solutions</li>
+                </ul>
+              </div>
             </section>
 
             <section>
@@ -248,6 +267,7 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
                 <li>Competitive pricing and regular discounts</li>
                 <li>Expert consultation and medication counseling</li>
                 <li>Secure and confidential handling of prescriptions</li>
+                <li>Research-backed platform developed with academic rigor</li>
               </ul>
             </section>
 
@@ -265,12 +285,16 @@ const Footer = ({ onCategorySelect, categories: propCategories }: FooterProps) =
             </section>
 
             <section>
+              <h3 className="font-semibold text-lg mb-2">Technology & Innovation</h3>
+              <p>Our platform leverages advanced technology developed through rigorous research at EMA Lab, IIT Dharwad. We combine academic excellence with practical healthcare solutions to create a seamless, efficient, and user-friendly pharmacy experience.</p>
+            </section>
+
+            <section>
               <h3 className="font-semibold text-lg mb-2">Contact Information</h3>
-              <p>📞 Phone: +91 87672 43352</p>
               <p>📧 Email: bugevedant@gmail.com</p>
               <p>📍 Address: 123 Health Street, Medical District</p>
               <p>🕒 Operating Hours: 24/7</p>
-              <p>💬 WhatsApp Support: Available for instant assistance</p>
+              <p>🏛️ Developed at: EMA Lab, IIT Dharwad, Karnataka</p>
             </section>
           </div>
         </DialogContent>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, ShoppingCart, Menu, X, User, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -121,11 +120,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-3 px-4">
         <div className="container mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="font-medium">📞 8767243352</span>
-            </div>
-            <span className="hidden sm:block">✉️ bugevedant@gmail.com</span>
+            <span className="font-medium">✉️ bugevedant@gmail.com</span>
           </div>
           <div className="hidden md:flex items-center space-x-6">
             <Badge variant="secondary" className="bg-white/20 text-white border-0 hover:bg-white/30">

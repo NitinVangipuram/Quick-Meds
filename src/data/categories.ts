@@ -1,12 +1,16 @@
 
 export const categories = [
   'Antibiotics',
+  'Analgesics', 
+  'Diabetes',
   'Antifungals',
-  'Antivirals',
-  'Diabetes Care',
+  'Antivirals', 
   'Cardiovascular',
   'Pain & Inflammation',
   'Gastrointestinal',
   'Respiratory',
-  'Allergy'
+  'Allergy',
+  'CNS Medications',
+  'Dermatology',
+  'Antacids & Gastro'
 ];
